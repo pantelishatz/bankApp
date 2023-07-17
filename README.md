@@ -1,6 +1,6 @@
 # BankApp
 
-![ATM Icon](../../../../../../../../User/atm%20(1).png)
+![ATM Icon](<blockquote class="imgur-embed-pub" lang="en" data-id="WUMMErh" ><a href="//imgur.com/WUMMErh">This ATM can be adjusted to the height of your car</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
 
 BankApp is a Java-based banking application designed to empower users with efficient account management capabilities. It follows the Model-View-Controller (MVC) architectural pattern, ensuring a clear separation of concerns and promoting modularity.
 
