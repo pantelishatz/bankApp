@@ -1,6 +1,6 @@
 # BankApp
 
-![ATM Icon]()
+![ATM Icon](image.png)
 
 BankApp is a Java-based banking application designed to empower users with efficient account management capabilities. It follows the Model-View-Controller (MVC) architectural pattern, ensuring a clear separation of concerns and promoting modularity.
 
