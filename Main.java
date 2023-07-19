@@ -1,6 +1,7 @@
 package gr.aueb.cf.bankApp;
 
-import gr.aueb.cf.bankApp.actions.BankActions;
+import gr.aueb.cf.bankApp.controllers.*;
+import gr.aueb.cf.bankApp.interfaces.*;
 import gr.aueb.cf.bankApp.model.Account;
 import gr.aueb.cf.bankApp.model.OverdraftAccount;
 import gr.aueb.cf.bankApp.model.User;
@@ -11,6 +12,7 @@ import java.util.Map;
 import java.util.Scanner;
 
     public class Main {
+
 
         public static void main(String[] args) {
             // Create users
@@ -112,20 +114,44 @@ import java.util.Scanner;
                 System.out.println("4. Display Balance");
                 System.out.println("0. Back");
 
+                String filePath = "C:\\Users\\User\\IdeaProjects\\Repetition\\transactions.txt";
+                PersistenceControllerInterface persistenceAdapter = new FilePersistenceController(filePath);
+
+                Account account = accountsMap.get(user);
                 try {
                     int choice = scanner.nextInt();
                     switch (choice) {
                         case 1:
-                            BankActions.makeDeposit(user, scanner, accountsMap);
+                            if (account != null) {
+                                System.out.println("Enter deposit amount:");
+                                Double amount = scanner.nextDouble();
+
+                                MakeDepositControllerInterface controller = new MakeDepositController(persistenceAdapter);
+                                controller.makeDeposit(account, amount);
+                            }
                             break;
                         case 2:
-                            BankActions.makeWithdrawal(user, scanner, accountsMap);
+                            if (account != null) {
+                                System.out.println("Enter withdraw amount:");
+                                Double amount = scanner.nextDouble();
+
+                                MakeWithdrawalInterface controllerWithdrawal = new MakeWithdrawalController(persistenceAdapter);
+                                controllerWithdrawal.makeWithdrawal(account, amount);
+                            }
                             break;
                         case 3:
-                            BankActions.makeOverdraftWithdrawal(user, scanner, overdraftAccountsMap);
-                            break;
+                            OverdraftAccount overdraftAccount = overdraftAccountsMap.get(user);
+                            if (overdraftAccount != null) {
+                                System.out.println("Enter withdraw amount amount:");
+                                Double amount = scanner.nextDouble();
+
+                                MakeOverdraftWithdrawalInterface controllerOverdraftWithdrawal = new MakeOverdraftWithdrawalController(persistenceAdapter);
+                                controllerOverdraftWithdrawal.makeOverdraftWithdrawal(overdraftAccount, amount);
+                                break;
+                            }
                         case 4:
-                            BankActions.displayBalance(user, accountsMap, overdraftAccountsMap);
+                            DisplayBalanceInterface controllerDisplayBalance = new DisplayBalanceController();
+                            controllerDisplayBalance.displayBalance(user, accountsMap, overdraftAccountsMap);
                             break;
                         case 0:
                             exit = true;

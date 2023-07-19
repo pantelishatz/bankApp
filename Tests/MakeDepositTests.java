@@ -1,0 +1,48 @@
+package gr.aueb.cf.bankApp.Tests;
+import gr.aueb.cf.bankApp.controllers.FilePersistenceController;
+import gr.aueb.cf.bankApp.controllers.MakeDepositController;
+import gr.aueb.cf.bankApp.mocks.MockPersistenceController;
+import gr.aueb.cf.bankApp.model.Account;
+import gr.aueb.cf.bankApp.model.User;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDateTime;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MakeDepositTests {
+
+    MockPersistenceController persistenceController = new MockPersistenceController();
+
+    @Test
+    void testMakeDepositAmountInsufficient() {
+        MakeDepositController subject = new MakeDepositController(persistenceController);
+        User user = new User("Test", "Test", "000000");
+        Account account = new Account("GR000000", user, 0);
+
+        subject.makeDeposit(account, -100.0);
+
+        assertNull(persistenceController.prefix);
+        assertNull(persistenceController.transactionType);
+        assertNull(persistenceController.amount);
+        assertNull(persistenceController.iban);
+    }
+
+    @Test
+    void testMakeDepositAmountSufficient() {
+        MakeDepositController subject = new MakeDepositController(persistenceController);
+        User user = new User("Test", "Test", "000000");
+        Account account = new Account("GR000000", user, 1000);
+
+        subject.makeDeposit(account, 100.0);
+
+        assertNotNull(persistenceController.prefix);
+        assertEquals(persistenceController.transactionType.get(), "Deposit");
+        assertEquals(persistenceController.amount.get(), 100.0);
+        assertEquals(persistenceController.iban.get(), "GR000000");
+    }
+
+
+}
