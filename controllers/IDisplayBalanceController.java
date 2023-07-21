@@ -1,14 +1,13 @@
 package gr.aueb.cf.bankApp.controllers;
 
-import gr.aueb.cf.bankApp.interfaces.DisplayBalanceInterface;
-import gr.aueb.cf.bankApp.interfaces.PersistenceControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IDisplayBalanceInterface;
 import gr.aueb.cf.bankApp.model.Account;
 import gr.aueb.cf.bankApp.model.OverdraftAccount;
 import gr.aueb.cf.bankApp.model.User;
 
 import java.util.Map;
 
-public class DisplayBalanceController implements DisplayBalanceInterface {
+public class IDisplayBalanceController implements IDisplayBalanceInterface {
 
     public void displayBalance(User user, Map<User, Account> accountsMap, Map<User, OverdraftAccount> overdraftAccountsMap) {
         System.out.println("=== Balance ===");

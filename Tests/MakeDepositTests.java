@@ -1,24 +1,19 @@
 package gr.aueb.cf.bankApp.Tests;
-import gr.aueb.cf.bankApp.controllers.FilePersistenceController;
-import gr.aueb.cf.bankApp.controllers.MakeDepositController;
-import gr.aueb.cf.bankApp.mocks.MockPersistenceController;
+import gr.aueb.cf.bankApp.controllers.IMakeDepositController;
+import gr.aueb.cf.bankApp.mocks.MockIPersistenceController;
 import gr.aueb.cf.bankApp.model.Account;
 import gr.aueb.cf.bankApp.model.User;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MakeDepositTests {
 
-    MockPersistenceController persistenceController = new MockPersistenceController();
+    MockIPersistenceController persistenceController = new MockIPersistenceController();
 
     @Test
     void testMakeDepositAmountInsufficient() {
-        MakeDepositController subject = new MakeDepositController(persistenceController);
+        IMakeDepositController subject = new IMakeDepositController(persistenceController);
         User user = new User("Test", "Test", "000000");
         Account account = new Account("GR000000", user, 0);
 
@@ -32,7 +27,7 @@ public class MakeDepositTests {
 
     @Test
     void testMakeDepositAmountSufficient() {
-        MakeDepositController subject = new MakeDepositController(persistenceController);
+        IMakeDepositController subject = new IMakeDepositController(persistenceController);
         User user = new User("Test", "Test", "000000");
         Account account = new Account("GR000000", user, 1000);
 

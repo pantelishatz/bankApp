@@ -2,19 +2,16 @@ package gr.aueb.cf.bankApp.controllers;
 
 import gr.aueb.cf.bankApp.exceptions.InsufficientBalanceException;
 import gr.aueb.cf.bankApp.exceptions.SsnNotValidException;
-import gr.aueb.cf.bankApp.interfaces.MakeWithdrawalInterface;
-import gr.aueb.cf.bankApp.interfaces.PersistenceControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IMakeWithdrawalInterface;
+import gr.aueb.cf.bankApp.interfaces.IPersistenceControllerInterface;
 import gr.aueb.cf.bankApp.model.Account;
-import gr.aueb.cf.bankApp.model.User;
 
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Scanner;
 
-public class MakeWithdrawalController implements MakeWithdrawalInterface {
-    private PersistenceControllerInterface persistenceController;
+public class IMakeWithdrawalController implements IMakeWithdrawalInterface {
+    private IPersistenceControllerInterface persistenceController;
 
-    public MakeWithdrawalController(PersistenceControllerInterface persistenceController) {
+    public IMakeWithdrawalController(IPersistenceControllerInterface persistenceController) {
         this.persistenceController = persistenceController;
     }
 

@@ -115,7 +115,7 @@ import java.util.Scanner;
                 System.out.println("0. Back");
 
                 String filePath = "C:\\Users\\User\\IdeaProjects\\Repetition\\transactions.txt";
-                PersistenceControllerInterface persistenceAdapter = new FilePersistenceController(filePath);
+                IPersistenceControllerInterface persistenceAdapter = new FileIPersistenceController(filePath);
 
                 Account account = accountsMap.get(user);
                 try {
@@ -126,7 +126,7 @@ import java.util.Scanner;
                                 System.out.println("Enter deposit amount:");
                                 Double amount = scanner.nextDouble();
 
-                                MakeDepositControllerInterface controller = new MakeDepositController(persistenceAdapter);
+                                IMakeDepositControllerInterface controller = new IMakeDepositController(persistenceAdapter);
                                 controller.makeDeposit(account, amount);
                             }
                             break;
@@ -135,7 +135,7 @@ import java.util.Scanner;
                                 System.out.println("Enter withdraw amount:");
                                 Double amount = scanner.nextDouble();
 
-                                MakeWithdrawalInterface controllerWithdrawal = new MakeWithdrawalController(persistenceAdapter);
+                                IMakeWithdrawalInterface controllerWithdrawal = new IMakeWithdrawalController(persistenceAdapter);
                                 controllerWithdrawal.makeWithdrawal(account, amount);
                             }
                             break;
@@ -145,12 +145,12 @@ import java.util.Scanner;
                                 System.out.println("Enter withdraw amount amount:");
                                 Double amount = scanner.nextDouble();
 
-                                MakeOverdraftWithdrawalInterface controllerOverdraftWithdrawal = new MakeOverdraftWithdrawalController(persistenceAdapter);
+                                IMakeOverdraftWithdrawalInterface controllerOverdraftWithdrawal = new IMakeOverdraftWithdrawalController(persistenceAdapter);
                                 controllerOverdraftWithdrawal.makeOverdraftWithdrawal(overdraftAccount, amount);
                                 break;
                             }
                         case 4:
-                            DisplayBalanceInterface controllerDisplayBalance = new DisplayBalanceController();
+                            IDisplayBalanceInterface controllerDisplayBalance = new IDisplayBalanceController();
                             controllerDisplayBalance.displayBalance(user, accountsMap, overdraftAccountsMap);
                             break;
                         case 0:

@@ -6,6 +6,6 @@ import gr.aueb.cf.bankApp.model.User;
 
 import java.util.Map;
 
-public interface DisplayBalanceInterface {
+public interface IDisplayBalanceInterface {
     void displayBalance(User user, Map<User, Account> accountsMap, Map<User, OverdraftAccount> overdraftAccountsMap);
 }

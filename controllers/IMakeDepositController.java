@@ -1,21 +1,18 @@
 package gr.aueb.cf.bankApp.controllers;
 
 import gr.aueb.cf.bankApp.exceptions.InsufficientAmountException;
-import gr.aueb.cf.bankApp.interfaces.MakeDepositControllerInterface;
-import gr.aueb.cf.bankApp.interfaces.PersistenceControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IMakeDepositControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IPersistenceControllerInterface;
 import gr.aueb.cf.bankApp.model.Account;
-import gr.aueb.cf.bankApp.model.User;
 
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Scanner;
 
 
-public class MakeDepositController implements MakeDepositControllerInterface {
+public class IMakeDepositController implements IMakeDepositControllerInterface {
 
-    private PersistenceControllerInterface persistenceController;
+    private IPersistenceControllerInterface persistenceController;
 
-    public MakeDepositController(PersistenceControllerInterface persistenceController) {
+    public IMakeDepositController(IPersistenceControllerInterface persistenceController) {
         this.persistenceController = persistenceController;
     }
 
