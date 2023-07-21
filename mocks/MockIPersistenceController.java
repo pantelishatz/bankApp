@@ -1,10 +1,10 @@
 package gr.aueb.cf.bankApp.mocks;
 
-import gr.aueb.cf.bankApp.interfaces.IPersistenceControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IPersistenceController;
 
 import java.util.Optional;
 
-public final class MockIPersistenceController implements IPersistenceControllerInterface {
+public final class MockIPersistenceController implements IPersistenceController {
 
     public Optional<String> prefix = null;
     public Optional<String> transactionType = null;

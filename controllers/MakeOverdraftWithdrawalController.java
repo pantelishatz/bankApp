@@ -1,16 +1,16 @@
 package gr.aueb.cf.bankApp.controllers;
 
 import gr.aueb.cf.bankApp.exceptions.SsnNotValidException;
-import gr.aueb.cf.bankApp.interfaces.IMakeOverdraftWithdrawalInterface;
-import gr.aueb.cf.bankApp.interfaces.IPersistenceControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IMakeOverdraftWithdrawal;
+import gr.aueb.cf.bankApp.interfaces.IPersistenceController;
 import gr.aueb.cf.bankApp.model.OverdraftAccount;
 
 import java.time.LocalDateTime;
 
-public class IMakeOverdraftWithdrawalController implements IMakeOverdraftWithdrawalInterface {
-    private IPersistenceControllerInterface persistenceController;
+public class MakeOverdraftWithdrawalController implements IMakeOverdraftWithdrawal {
+    private IPersistenceController persistenceController;
 
-    public IMakeOverdraftWithdrawalController(IPersistenceControllerInterface persistenceController) {
+    public MakeOverdraftWithdrawalController(IPersistenceController persistenceController) {
         this.persistenceController = persistenceController;
     }
 

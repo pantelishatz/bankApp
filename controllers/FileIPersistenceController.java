@@ -1,11 +1,11 @@
 package gr.aueb.cf.bankApp.controllers;
 
-import gr.aueb.cf.bankApp.interfaces.IPersistenceControllerInterface;
+import gr.aueb.cf.bankApp.interfaces.IPersistenceController;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FileIPersistenceController implements IPersistenceControllerInterface {
+public class FileIPersistenceController implements IPersistenceController {
 
     public String filePath;
 

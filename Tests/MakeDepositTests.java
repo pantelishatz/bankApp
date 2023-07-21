@@ -1,5 +1,5 @@
 package gr.aueb.cf.bankApp.Tests;
-import gr.aueb.cf.bankApp.controllers.IMakeDepositController;
+import gr.aueb.cf.bankApp.controllers.MakeDepositController;
 import gr.aueb.cf.bankApp.mocks.MockIPersistenceController;
 import gr.aueb.cf.bankApp.model.Account;
 import gr.aueb.cf.bankApp.model.User;
@@ -13,7 +13,7 @@ public class MakeDepositTests {
 
     @Test
     void testMakeDepositAmountInsufficient() {
-        IMakeDepositController subject = new IMakeDepositController(persistenceController);
+        MakeDepositController subject = new MakeDepositController(persistenceController);
         User user = new User("Test", "Test", "000000");
         Account account = new Account("GR000000", user, 0);
 
@@ -27,7 +27,7 @@ public class MakeDepositTests {
 
     @Test
     void testMakeDepositAmountSufficient() {
-        IMakeDepositController subject = new IMakeDepositController(persistenceController);
+        MakeDepositController subject = new MakeDepositController(persistenceController);
         User user = new User("Test", "Test", "000000");
         Account account = new Account("GR000000", user, 1000);
 
